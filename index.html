@@ -4,203 +4,360 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SuperHuman Delivery</title>
+  <meta name="description" content="SuperHuman Delivery - Livraison de colis, déménagement résidentiel et commercial, nettoyage résidentiel dans le Grand Montréal, Gatineau et Ottawa." />
   <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #081225;
-      color: white;
-      line-height: 1.5;
+      background: #07111f;
+      color: #fff;
+      line-height: 1.55;
     }
-    a { text-decoration: none; }
-    img { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
 
     .container {
-      width: min(1150px, 92%);
+      width: min(1180px, 92%);
       margin: 0 auto;
     }
 
-    .hero {
-      background:
-        linear-gradient(rgba(4,12,30,0.78), rgba(4,12,30,0.88)),
-        url('https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      padding: 90px 0 80px;
+    .section {
+      padding: 78px 0;
     }
 
-    .badge {
+    .section-dark {
+      background: #0b1730;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
       display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(34, 211, 238, 0.12);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
       color: #67e8f9;
-      border: 1px solid rgba(34, 211, 238, 0.25);
-      font-size: 14px;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
     }
 
     h1 {
-      font-size: 52px;
-      line-height: 1.1;
-      margin: 0 0 16px;
-      max-width: 850px;
+      font-size: 56px;
+      line-height: 1.05;
+      margin-bottom: 18px;
+      max-width: 900px;
     }
 
     h2 {
-      font-size: 36px;
-      margin: 0 0 14px;
+      font-size: 38px;
+      line-height: 1.15;
+      margin-bottom: 14px;
     }
 
     h3 {
       font-size: 24px;
-      margin: 0 0 12px;
+      margin-bottom: 12px;
+    }
+
+    .muted {
+      color: #cbd5e1;
     }
 
     .lead {
-      max-width: 760px;
       font-size: 19px;
       color: #dbeafe;
+      max-width: 820px;
       margin-bottom: 26px;
     }
 
-    .btn-row {
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 34px 0 90px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(rgba(5, 11, 24, 0.74), rgba(5, 11, 24, 0.9)),
+        url('https://images.unsplash.com/photo-1519010470956-6d877008eaa4?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(70px);
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    .glow.one {
+      width: 260px;
+      height: 260px;
+      top: -30px;
+      right: 5%;
+      background: #22d3ee;
+    }
+
+    .glow.two {
+      width: 220px;
+      height: 220px;
+      bottom: -40px;
+      left: 6%;
+      background: #2563eb;
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 2;
       display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
       flex-wrap: wrap;
+      margin-bottom: 38px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
       gap: 14px;
-      margin-top: 22px;
+    }
+
+    .logo-box {
+      width: 74px;
+      height: 74px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-title {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .btn {
       display: inline-block;
       padding: 14px 22px;
-      border-radius: 12px;
+      border-radius: 14px;
       font-weight: 700;
-      transition: 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
     }
 
     .btn-primary {
-      background: #22d3ee;
+      background: linear-gradient(135deg, #22d3ee, #67e8f9);
       color: #062033;
+      box-shadow: 0 10px 28px rgba(34, 211, 238, 0.22);
     }
-
-    .btn-primary:hover { opacity: 0.92; }
 
     .btn-outline {
-      border: 1px solid rgba(255,255,255,0.25);
-      color: white;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: #fff;
     }
 
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.09);
+    .btn-whatsapp {
+      background: rgba(34, 197, 94, 0.14);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      color: #bbf7d0;
     }
 
-    .stats {
-      margin-top: 38px;
+    .hero-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .hero-card,
+    .glass-card,
+    .service-card,
+    .feature-card,
+    .zone-card,
+    .testimonial,
+    .contact-card,
+    .form-card,
+    .about-card,
+    .recruit-card,
+    .premium-strip {
+      background: rgba(15, 29, 54, 0.92);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.22);
+    }
+
+    .hero-card {
+      padding: 28px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(34,211,238,0.10);
+      border: 1px solid rgba(34,211,238,0.20);
+      color: #67e8f9;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .hero-side {
+      display: grid;
       gap: 16px;
     }
 
-    .stat-box {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
+    .glass-card {
       padding: 22px;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
     }
 
-    .stat-box strong {
+    .stat-number {
       display: block;
-      font-size: 28px;
+      font-size: 30px;
+      font-weight: 800;
       color: #67e8f9;
       margin-bottom: 6px;
     }
 
-    section {
-      padding: 72px 0;
-    }
-
-    .section-top {
-      margin-bottom: 28px;
-    }
-
-    .section-top p {
-      color: #cbd5e1;
-      max-width: 760px;
-      margin: 0;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: #0f1d36;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
-    }
-
-    .card img {
-      height: 220px;
-      width: 100%;
-      object-fit: cover;
-    }
-
-    .card-body {
-      padding: 22px;
-    }
-
-    .card-body p {
-      color: #cbd5e1;
-      min-height: 72px;
-    }
-
-    .features-wrap {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .feature-panel,
-    .about-panel,
-    .form-card,
-    .contact-card,
-    .testimonial {
-      background: #0f1d36;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      padding: 26px;
-    }
-
-    .feature-grid {
+    .stats-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .premium-strip {
+      padding: 22px;
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
 
-    .feature-item {
+    .premium-item {
       background: rgba(255,255,255,0.04);
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 16px;
+      color: #dbeafe;
+      min-height: 92px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      overflow: hidden;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 22px;
+    }
+
+    .service-content p {
+      color: #cbd5e1;
+      min-height: 74px;
+    }
+
+    .service-content .btn {
+      margin-top: 6px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      padding: 22px;
       color: #dbeafe;
     }
 
-    .about-panel p,
-    .contact-card p {
-      color: #cbd5e1;
+    .about-card {
+      padding: 28px;
     }
 
-    .testimonials {
+    .about-card p {
+      color: #cbd5e1;
+      max-width: 980px;
+    }
+
+    .zones-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 18px;
+    }
+
+    .zone-card {
+      padding: 24px;
+    }
+
+    .zone-card p {
+      color: #cbd5e1;
+      margin-bottom: 0;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .testimonial {
+      padding: 24px;
     }
 
     .testimonial p {
@@ -209,29 +366,68 @@
 
     .testimonial strong {
       color: #67e8f9;
+      display: block;
+      margin-top: 12px;
     }
 
-    .contact-wrap {
+    .recruit-card {
+      padding: 30px;
+      background:
+        linear-gradient(rgba(8,17,31,0.82), rgba(8,17,31,0.94)),
+        url('https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .recruit-grid {
       display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 24px;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
     }
 
-    .contact-links {
+    .recruit-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .recruit-point {
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 14px 16px;
+      color: #dbeafe;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+    }
+
+    .contact-card,
+    .form-card {
+      padding: 26px;
+    }
+
+    .contact-card p {
+      color: #cbd5e1;
+      margin-bottom: 12px;
+    }
+
+    .contact-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 18px;
     }
 
-    .link-chip {
+    .contact-pill {
       display: inline-block;
       padding: 12px 18px;
       border-radius: 12px;
-      background: rgba(34, 211, 238, 0.12);
-      color: #67e8f9;
-      border: 1px solid rgba(34, 211, 238, 0.25);
       font-weight: 700;
+      background: rgba(34,211,238,0.10);
+      border: 1px solid rgba(34,211,238,0.20);
+      color: #67e8f9;
     }
 
     form {
@@ -243,7 +439,7 @@
       width: 100%;
       border: 1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.04);
-      color: white;
+      color: #fff;
       border-radius: 14px;
       padding: 14px 16px;
       font-size: 15px;
@@ -251,11 +447,11 @@
     }
 
     textarea {
-      min-height: 130px;
+      min-height: 140px;
       resize: vertical;
     }
 
-    .note {
+    .small-note {
       font-size: 14px;
       color: #94a3b8;
       margin-top: 8px;
@@ -263,106 +459,155 @@
 
     footer {
       border-top: 1px solid rgba(255,255,255,0.08);
-      color: #94a3b8;
       text-align: center;
-      padding: 26px 16px 34px;
+      color: #94a3b8;
+      padding: 28px 16px 36px;
+      background: #07111f;
     }
 
-    @media (max-width: 980px) {
-      h1 { font-size: 40px; }
-      .cards,
-      .testimonials,
-      .stats,
-      .contact-wrap,
-      .features-wrap {
+    @media (max-width: 1020px) {
+      h1 { font-size: 42px; }
+      .hero-grid,
+      .services-grid,
+      .features-grid,
+      .zones-grid,
+      .testimonial-grid,
+      .recruit-grid,
+      .contact-grid,
+      .premium-strip {
         grid-template-columns: 1fr;
       }
-      .feature-grid {
-        grid-template-columns: 1fr;
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
     @media (max-width: 640px) {
-      h1 { font-size: 32px; }
-      h2 { font-size: 28px; }
-      .hero { padding: 72px 0 64px; }
-      section { padding: 58px 0; }
+      h1 { font-size: 34px; }
+      h2 { font-size: 30px; }
+      .hero { padding-bottom: 68px; }
+      .section { padding: 60px 0; }
+      .stats-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
   <section class="hero">
-    <div class="container">
-      <span class="badge">SuperHuman Delivery • Montréal • Déménagement • Nettoyage</span>
-      <h1>Plus qu’un service, une solution complète de transport et de confort</h1>
-      <p class="lead">
-        Nous accompagnons les particuliers et les entreprises avec un service premium en déménagement résidentiel,
-        déménagement commercial et nettoyage résidentiel à Montréal et dans les environs.
-      </p>
+    <div class="glow one"></div>
+    <div class="glow two"></div>
 
-      <div class="btn-row">
-        <a href="#soumission" class="btn btn-primary">Demander une soumission</a>
-        <a href="tel:5144636742" class="btn btn-outline">Appeler maintenant</a>
-        <a href="https://wa.me/15144636742?text=Bonjour%20SuperHuman%20Delivery%2C%20je%20souhaite%20une%20soumission." class="btn btn-outline">WhatsApp</a>
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo-box">
+            <img src="LOGO_URL_ICI" alt="Logo SuperHuman Delivery">
+          </div>
+          <div>
+            <div class="brand-title">SuperHuman Delivery</div>
+            <div class="brand-sub">Livraison • Déménagement • Nettoyage</div>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <a href="tel:5144636742" class="btn btn-outline">514-463-6742</a>
+          <a href="https://wa.me/15144636742?text=Bonjour%20SuperHuman%20Delivery%2C%20je%20souhaite%20une%20soumission." class="btn btn-whatsapp">WhatsApp</a>
+        </div>
       </div>
 
-      <div class="stats">
-        <div class="stat-box">
-          <strong>Résidentiel</strong>
-          Notre service prioritaire pour appartements, condos et maisons.
+      <div class="hero-grid">
+        <div class="hero-card">
+          <span class="hero-badge">Grand Montréal • Rive-Nord • Rive-Sud • Gatineau • Ottawa</span>
+          <h1>Plus qu’un service, une solution complète de transport et de confort</h1>
+          <p class="lead">
+            Nous accompagnons les particuliers et les entreprises avec un service premium en livraison de colis, déménagement résidentiel, déménagement commercial et nettoyage résidentiel.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#soumission" class="btn btn-primary">Demander une soumission</a>
+            <a href="#services" class="btn btn-outline">Découvrir nos services</a>
+            <a href="#recrutement" class="btn btn-outline">Recrutement</a>
+          </div>
         </div>
-        <div class="stat-box">
-          <strong>2 numéros</strong>
-          Contact direct rapide par téléphone ou WhatsApp.
+
+        <div class="hero-side">
+          <div class="glass-card">
+            <span class="stat-number">Premium</span>
+            Une image sérieuse, rassurante et professionnelle pour vos clients.
+          </div>
+
+          <div class="stats-grid">
+            <div class="glass-card">
+              <span class="stat-number">Colis</span>
+              Livraison rapide et fiable.
+            </div>
+            <div class="glass-card">
+              <span class="stat-number">Résidentiel</span>
+              Notre priorité pour les particuliers.
+            </div>
+            <div class="glass-card">
+              <span class="stat-number">2 numéros</span>
+              Contact direct et rapide.
+            </div>
+            <div class="glass-card">
+              <span class="stat-number">Pro</span>
+              Service clair et bien organisé.
+            </div>
+          </div>
         </div>
-        <div class="stat-box">
-          <strong>Pro</strong>
-          Une image sérieuse, rassurante et professionnelle.
-        </div>
+      </div>
+
+      <div class="premium-strip">
+        <div class="premium-item">Soumission rapide et simple</div>
+        <div class="premium-item">Téléphone, email et WhatsApp directs</div>
+        <div class="premium-item">Particuliers et entreprises</div>
+        <div class="premium-item">Qualité de service au cœur de l’expérience</div>
       </div>
     </div>
   </section>
 
-  <section>
+  <section class="section" id="services">
     <div class="container">
-      <div class="section-top">
-        <h2>Nos services</h2>
-        <p>
-          Des services pensés pour rassurer, simplifier et exécuter avec sérieux.
-        </p>
+      <div class="section-title">
+        <span class="eyebrow">Nos services</span>
+        <h2>Des prestations pensées pour rassurer, simplifier et exécuter avec sérieux</h2>
+        <p class="muted">Une offre claire, premium et professionnelle pour répondre aux besoins du quotidien comme aux besoins d’entreprise.</p>
       </div>
 
-      <div class="cards">
-        <article class="card">
+      <div class="services-grid">
+        <article class="service-card">
+          <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1200&q=80" alt="Livraison de colis">
+          <div class="service-content">
+            <h3>Livraison de colis</h3>
+            <p>Service rapide et fiable pour la livraison de colis résidentiels et commerciaux avec une prise en charge professionnelle.</p>
+            <a href="#soumission" class="btn btn-primary">Demander une soumission</a>
+          </div>
+        </article>
+
+        <article class="service-card">
           <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Déménagement résidentiel">
-          <div class="card-body">
+          <div class="service-content">
             <h3>Déménagement résidentiel</h3>
-            <p>
-              Notre service principal pour appartements, condos et maisons, avec une prise en charge sérieuse, rapide et soignée.
-            </p>
+            <p>Notre service principal pour appartements, condos et maisons, avec une prise en charge sérieuse, rapide et soignée.</p>
             <a href="#soumission" class="btn btn-primary">Demander une soumission</a>
           </div>
         </article>
 
-        <article class="card">
+        <article class="service-card">
           <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Déménagement commercial">
-          <div class="card-body">
+          <div class="service-content">
             <h3>Déménagement commercial</h3>
-            <p>
-              Relocalisation de bureaux, commerces et équipements avec une organisation professionnelle adaptée aux entreprises.
-            </p>
+            <p>Relocalisation de bureaux, commerces et équipements avec une organisation professionnelle adaptée aux entreprises.</p>
             <a href="#soumission" class="btn btn-primary">Demander une soumission</a>
           </div>
         </article>
 
-        <article class="card">
+        <article class="service-card">
           <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" alt="Nettoyage résidentiel">
-          <div class="card-body">
+          <div class="service-content">
             <h3>Nettoyage résidentiel</h3>
-            <p>
-              Nettoyage avant ou après déménagement, entretien résidentiel et remise en état légère avec une finition propre et soignée.
-            </p>
+            <p>Nettoyage avant ou après déménagement, entretien résidentiel et remise en état légère avec une finition propre et soignée.</p>
             <a href="#soumission" class="btn btn-primary">Demander une soumission</a>
           </div>
         </article>
@@ -370,53 +615,79 @@
     </div>
   </section>
 
-  <section style="background:#0b1730;">
-    <div class="container features-wrap">
-      <div class="feature-panel">
-        <h2>Pourquoi nous choisir</h2>
-        <p style="color:#cbd5e1;">
-          Nous mettons l’accent sur la ponctualité, le respect des biens, la clarté de communication et une exécution professionnelle.
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Pourquoi nous choisir</span>
+        <h2>Une qualité de service qui inspire confiance</h2>
+        <p class="muted">Nous mettons l’accent sur la ponctualité, le respect des biens, la clarté de communication et une exécution professionnelle.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">Soumission rapide et simple</div>
+        <div class="feature-card">Livraison et services résidentiels prioritaires</div>
+        <div class="feature-card">Approche professionnelle et ponctuelle</div>
+        <div class="feature-card">Service flexible selon le besoin</div>
+        <div class="feature-card">Téléphone et WhatsApp directs</div>
+        <div class="feature-card">Solutions adaptées aux particuliers et entreprises</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-card">
+        <span class="eyebrow">À propos</span>
+        <h2>Une entreprise moderne, sérieuse et orientée satisfaction client</h2>
+        <p>
+          SuperHuman Delivery propose des services de livraison de colis, de déménagement, de transport et de nettoyage avec une approche moderne, professionnelle et rassurante. Nous avons fait du service résidentiel un axe prioritaire afin d’offrir aux particuliers une expérience plus simple, plus fluide et plus sécurisante.
+        </p>
+        <p>
+          En complément, nous proposons aussi des solutions pour les entreprises, notamment en livraison de colis et déménagement commercial, avec le même niveau d’exigence, de sérieux et de qualité de service.
         </p>
       </div>
-
-      <div class="feature-grid">
-        <div class="feature-item">Soumission rapide et simple</div>
-        <div class="feature-item">Service résidentiel prioritaire</div>
-        <div class="feature-item">Approche professionnelle et ponctuelle</div>
-        <div class="feature-item">Montréal et environs</div>
-        <div class="feature-item">Téléphone et WhatsApp directs</div>
-        <div class="feature-item">Solutions adaptées aux clients</div>
-      </div>
     </div>
   </section>
 
-  <section>
-    <div class="container about-panel">
-      <h2>À propos</h2>
-      <p>
-        SuperHuman Delivery propose des services de déménagement, de transport et de nettoyage avec une approche moderne, professionnelle et rassurante.
-        Nous avons fait du déménagement résidentiel un axe prioritaire afin d’offrir aux particuliers une expérience plus simple, plus fluide et plus sécurisante.
-      </p>
-      <p>
-        En complément, nous proposons aussi des solutions de déménagement commercial et de nettoyage résidentiel, afin de répondre à des besoins variés avec le même niveau d’exigence.
-      </p>
-    </div>
-  </section>
-
-  <section style="background:#0b1730;">
+  <section class="section section-dark">
     <div class="container">
-      <div class="section-top">
-        <h2>Témoignages</h2>
-        <p>Une image de confiance pour vos futurs clients.</p>
+      <div class="section-title">
+        <span class="eyebrow">Zones desservies</span>
+        <h2>Une présence flexible dans les grandes zones urbaines</h2>
+        <p class="muted">Nous opérons principalement dans les zones à fort besoin, avec possibilité d’adaptation selon le mandat.</p>
       </div>
 
-      <div class="testimonials">
+      <div class="zones-grid">
+        <div class="zone-card">
+          <h3>Grand Montréal</h3>
+          <p>Montréal et ses environs pour la livraison, le déménagement et les services résidentiels.</p>
+        </div>
+        <div class="zone-card">
+          <h3>Rive-Nord & Rive-Sud</h3>
+          <p>Interventions possibles sur la Rive-Nord jusqu’à Saint-Jérôme ainsi que sur la Rive-Sud.</p>
+        </div>
+        <div class="zone-card">
+          <h3>Outaouais</h3>
+          <p>Gatineau et Ottawa pour certains besoins de livraison, transport et déménagement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Témoignages</span>
+        <h2>Une image de confiance pour vos futurs clients</h2>
+      </div>
+
+      <div class="testimonial-grid">
         <div class="testimonial">
           <p>“Service professionnel, rapide et très respectueux de nos biens. Une expérience rassurante du début à la fin.”</p>
           <strong>Client résidentiel</strong>
         </div>
         <div class="testimonial">
-          <p>“Bonne coordination, équipe sérieuse et communication claire. Je recommande pour les besoins de transport et déménagement.”</p>
+          <p>“Bonne coordination, équipe sérieuse et communication claire. Je recommande pour les besoins de transport, colis et déménagement.”</p>
           <strong>Client commercial</strong>
         </div>
         <div class="testimonial">
@@ -427,52 +698,81 @@
     </div>
   </section>
 
-  <section id="soumission">
-    <div class="container contact-wrap">
-      <div class="contact-card">
-        <h2>Obtenez une soumission rapide</h2>
-        <p>
-          Dites-nous de quel service vous avez besoin et contactez-nous directement pour une prise en charge rapide.
-        </p>
+  <section class="section section-dark" id="recrutement">
+    <div class="container">
+      <div class="recruit-card">
+        <span class="eyebrow">Recrutement</span>
+        <div class="recruit-grid">
+          <div>
+            <h2>Vous souhaitez travailler avec nous ?</h2>
+            <p class="muted">
+              Nous recrutons selon les besoins de l’entreprise pour des missions de livraison, manutention, déménagement et soutien opérationnel.
+            </p>
+            <div class="recruit-points">
+              <div class="recruit-point">Profils sérieux, motivés et ponctuels recherchés</div>
+              <div class="recruit-point">Voiture, VUS, minivan ou van selon les mandats</div>
+              <div class="recruit-point">Possibilités pour livraison et soutien aux opérations</div>
+            </div>
+          </div>
 
-        <p><strong>Téléphone 1 :</strong> 514-463-6742</p>
-        <p><strong>Téléphone 2 :</strong> 438-815-6524</p>
-        <p><strong>Email :</strong> superhuman.quebec@gmail.com</p>
-
-        <div class="contact-links">
-          <a class="link-chip" href="tel:5144636742">Appeler</a>
-          <a class="link-chip" href="https://wa.me/15144636742?text=Bonjour%20SuperHuman%20Delivery%2C%20je%20souhaite%20une%20soumission.">WhatsApp</a>
-          <a class="link-chip" href="mailto:superhuman.quebec@gmail.com">Email</a>
+          <div>
+            <p class="muted"><strong style="color:#fff;">Pour postuler :</strong> envoyez votre nom, votre numéro, votre type de véhicule et votre disponibilité.</p>
+            <div class="hero-buttons" style="margin-top:18px;">
+              <a href="mailto:superhuman.quebec@gmail.com?subject=Candidature%20-%20SuperHuman%20Delivery" class="btn btn-primary">Postuler par email</a>
+              <a href="https://wa.me/15144636742?text=Bonjour%20SuperHuman%20Delivery%2C%20je%20souhaite%20postuler." class="btn btn-whatsapp">Postuler sur WhatsApp</a>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="form-card">
-        <h3>Formulaire de demande</h3>
-        <form action="mailto:superhuman.quebec@gmail.com" method="POST" enctype="text/plain">
-          <input type="text" name="Nom" placeholder="Nom complet" required>
-          <input type="text" name="Téléphone" placeholder="Numéro de téléphone" required>
-          <input type="email" name="Email" placeholder="Adresse email" required>
+  <section class="section" id="soumission">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <span class="eyebrow">Contact</span>
+          <h2>Obtenez une soumission rapide</h2>
+          <p>Dites-nous de quel service vous avez besoin et contactez-nous directement pour une prise en charge rapide.</p>
+          <p><strong>Téléphone 1 :</strong> 514-463-6742</p>
+          <p><strong>Téléphone 2 :</strong> 438-815-6524</p>
+          <p><strong>Email :</strong> superhuman.quebec@gmail.com</p>
 
-          <select name="Service" required>
-            <option value="">Choisissez un service</option>
-            <option>Déménagement résidentiel</option>
-            <option>Déménagement commercial</option>
-            <option>Nettoyage résidentiel</option>
-          </select>
+          <div class="contact-actions">
+            <a class="contact-pill" href="tel:5144636742">Appeler</a>
+            <a class="contact-pill" href="https://wa.me/15144636742?text=Bonjour%20SuperHuman%20Delivery%2C%20je%20souhaite%20une%20soumission.">WhatsApp</a>
+            <a class="contact-pill" href="mailto:superhuman.quebec@gmail.com">Email</a>
+          </div>
+        </div>
 
-          <textarea name="Besoin" placeholder="Décrivez votre besoin" required></textarea>
+        <div class="form-card">
+          <span class="eyebrow">Formulaire</span>
+          <h3>Demande de service</h3>
+          <form action="mailto:superhuman.quebec@gmail.com" method="POST" enctype="text/plain">
+            <input type="text" name="Nom" placeholder="Nom complet" required>
+            <input type="text" name="Téléphone" placeholder="Numéro de téléphone" required>
+            <input type="email" name="Email" placeholder="Adresse email" required>
 
-          <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Envoyer la demande</button>
-        </form>
-        <div class="note">
-          En cliquant sur envoyer, votre application e-mail peut s’ouvrir pour finaliser l’envoi.
+            <select name="Service" required>
+              <option value="">Choisissez un service</option>
+              <option>Livraison de colis</option>
+              <option>Déménagement résidentiel</option>
+              <option>Déménagement commercial</option>
+              <option>Nettoyage résidentiel</option>
+            </select>
+
+            <textarea name="Besoin" placeholder="Décrivez votre besoin" required></textarea>
+
+            <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Envoyer la demande</button>
+          </form>
+          <div class="small-note">En cliquant sur envoyer, votre application e-mail peut s’ouvrir pour finaliser l’envoi.</div>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    © 2026 SuperHuman Delivery • Montréal • Tous droits réservés
+    © 2026 SuperHuman Delivery • Grand Montréal • Gatineau • Ottawa • Tous droits réservés
   </footer>
 
 </body>
