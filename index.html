@@ -1,295 +1,479 @@
-export default function SuperHumanDeliveryWebsite() {
-  const services = [
-    {
-      title: "Déménagement résidentiel",
-      description:
-        "Notre service principal pour appartements, condos et maisons, avec une prise en charge sérieuse, rapide et soignée.",
-      image:
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-    },
-    {
-      title: "Déménagement commercial",
-      description:
-        "Relocalisation de bureaux, commerces et équipements avec une organisation professionnelle adaptée aux entreprises.",
-      image:
-        "https://images.unsplash.com/photo-1581090700227-1e8a91e8b7b8?auto=format&fit=crop&w=1200&q=80",
-    },
-    {
-      title: "Nettoyage résidentiel",
-      description:
-        "Nettoyage avant ou après déménagement, entretien résidentiel et remise en état légère avec une finition propre et soignée.",
-      image:
-        "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80",
-    },
-  ];
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SuperHuman Delivery</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #081225;
+      color: white;
+      line-height: 1.5;
+    }
+    a { text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-  const features = [
-    "Soumission rapide et simple",
-    "Service résidentiel prioritaire",
-    "Approche professionnelle et ponctuelle",
-    "Montréal et environs",
-    "Contact direct par téléphone et WhatsApp",
-    "Solutions adaptées aux particuliers et entreprises",
-  ];
+    .container {
+      width: min(1150px, 92%);
+      margin: 0 auto;
+    }
 
-  const testimonials = [
-    {
-      name: "Client résidentiel",
-      text: "Service professionnel, rapide et très respectueux de nos biens. Une expérience rassurante du début à la fin.",
-    },
-    {
-      name: "Client commercial",
-      text: "Bonne coordination, équipe sérieuse et communication claire. Je recommande pour les besoins de transport et déménagement.",
-    },
-    {
-      name: "Client nettoyage",
-      text: "Appartement propre, travail soigné et service fiable. Très satisfait du résultat final.",
-    },
-  ];
+    .hero {
+      background:
+        linear-gradient(rgba(4,12,30,0.78), rgba(4,12,30,0.88)),
+        url('https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      padding: 90px 0 80px;
+    }
 
-  return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-sky-500/10 to-transparent" />
-        <div className="absolute -top-20 right-0 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl" />
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.12);
+      color: #67e8f9;
+      border: 1px solid rgba(34, 211, 238, 0.25);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
-              <div className="mb-4 inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1 text-sm text-cyan-200">
-                SuperHuman Delivery • Montréal • Déménagement • Nettoyage
-              </div>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                Plus qu’un service, une solution complète de transport et de confort
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                Nous accompagnons les particuliers et les entreprises avec un service premium en déménagement résidentiel, déménagement commercial et nettoyage résidentiel à Montréal et dans les environs.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="#contact"
-                  className="rounded-2xl bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg transition hover:scale-[1.02]"
-                >
-                  Demander une soumission
-                </a>
-                <a
-                  href="tel:5144636742"
-                  className="rounded-2xl border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/5"
-                >
-                  Appeler maintenant
-                </a>
-                <a
-                  href="https://wa.me/15144636742"
-                  className="rounded-2xl border border-green-400/30 bg-green-400/10 px-6 py-3 text-sm font-semibold text-green-200 transition hover:bg-green-400/20"
-                >
-                  WhatsApp
-                </a>
-              </div>
-            </div>
+    h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin: 0 0 16px;
+      max-width: 850px;
+    }
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur sm:col-span-2">
-                <div className="text-sm uppercase tracking-[0.25em] text-cyan-300">Spécialité</div>
-                <div className="mt-3 text-2xl font-bold">Déménagement résidentiel</div>
-                <p className="mt-3 text-slate-300">
-                  Une approche rassurante, organisée et professionnelle pour accompagner vos changements d’adresse en toute confiance.
-                </p>
-              </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
-                <div className="text-3xl font-bold text-cyan-300">2</div>
-                <div className="mt-2 text-sm text-slate-300">Numéros directs</div>
-              </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
-                <div className="text-3xl font-bold text-cyan-300">Pro</div>
-                <div className="mt-2 text-sm text-slate-300">Image professionnelle</div>
-              </div>
-            </div>
-          </div>
+    h2 {
+      font-size: 36px;
+      margin: 0 0 14px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin: 0 0 12px;
+    }
+
+    .lead {
+      max-width: 760px;
+      font-size: 19px;
+      color: #dbeafe;
+      margin-bottom: 26px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #22d3ee;
+      color: #062033;
+    }
+
+    .btn-primary:hover { opacity: 0.92; }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.09);
+    }
+
+    .stats {
+      margin-top: 38px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 22px;
+      backdrop-filter: blur(4px);
+    }
+
+    .stat-box strong {
+      display: block;
+      font-size: 28px;
+      color: #67e8f9;
+      margin-bottom: 6px;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-top {
+      margin-bottom: 28px;
+    }
+
+    .section-top p {
+      color: #cbd5e1;
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #0f1d36;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+    }
+
+    .card img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 22px;
+    }
+
+    .card-body p {
+      color: #cbd5e1;
+      min-height: 72px;
+    }
+
+    .features-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .feature-panel,
+    .about-panel,
+    .form-card,
+    .contact-card,
+    .testimonial {
+      background: #0f1d36;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 26px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .feature-item {
+      background: rgba(255,255,255,0.04);
+      border-radius: 16px;
+      padding: 16px;
+      color: #dbeafe;
+    }
+
+    .about-panel p,
+    .contact-card p {
+      color: #cbd5e1;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .testimonial p {
+      color: #dbeafe;
+    }
+
+    .testimonial strong {
+      color: #67e8f9;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 24px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .link-chip {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: rgba(34, 211, 238, 0.12);
+      color: #67e8f9;
+      border: 1px solid rgba(34, 211, 238, 0.25);
+      font-weight: 700;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: white;
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-top: 8px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #94a3b8;
+      text-align: center;
+      padding: 26px 16px 34px;
+    }
+
+    @media (max-width: 980px) {
+      h1 { font-size: 40px; }
+      .cards,
+      .testimonials,
+      .stats,
+      .contact-wrap,
+      .features-wrap {
+        grid-template-columns: 1fr;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 32px; }
+      h2 { font-size: 28px; }
+      .hero { padding: 72px 0 64px; }
+      section { padding: 58px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="container">
+      <span class="badge">SuperHuman Delivery • Montréal • Déménagement • Nettoyage</span>
+      <h1>Plus qu’un service, une solution complète de transport et de confort</h1>
+      <p class="lead">
+        Nous accompagnons les particuliers et les entreprises avec un service premium en déménagement résidentiel,
+        déménagement commercial et nettoyage résidentiel à Montréal et dans les environs.
+      </p>
+
+      <div class="btn-row">
+        <a href="#soumission" class="btn btn-primary">Demander une soumission</a>
+        <a href="tel:5144636742" class="btn btn-outline">Appeler maintenant</a>
+        <a href="https://wa.me/15144636742?text=Bonjour%20SuperHuman%20Delivery%2C%20je%20souhaite%20une%20soumission." class="btn btn-outline">WhatsApp</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat-box">
+          <strong>Résidentiel</strong>
+          Notre service prioritaire pour appartements, condos et maisons.
         </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-            Nos services
-          </p>
-          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-            Des services pensés pour rassurer, simplifier et exécuter avec sérieux
-          </h2>
+        <div class="stat-box">
+          <strong>2 numéros</strong>
+          Contact direct rapide par téléphone ou WhatsApp.
         </div>
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl transition hover:-translate-y-1 hover:bg-white/[0.07]"
-            >
-              <img src={service.image} alt={service.title} className="h-56 w-full object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-white">{service.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-300">{service.description}</p>
-                <a
-                  href="#contact"
-                  className="mt-5 inline-flex rounded-2xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:scale-[1.01]"
-                >
-                  Demander une soumission
-                </a>
-              </div>
-            </div>
-          ))}
+        <div class="stat-box">
+          <strong>Pro</strong>
+          Une image sérieuse, rassurante et professionnelle.
         </div>
-      </section>
-
-      <section className="border-y border-white/10 bg-slate-900/80">
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-                Pourquoi nous choisir
-              </p>
-              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                Une entreprise qui inspire confiance et donne une image sérieuse
-              </h2>
-              <p className="mt-4 max-w-xl text-slate-300">
-                Nous mettons l’accent sur la ponctualité, le respect des biens, la clarté de communication et une exécution professionnelle pour offrir une expérience rassurante à chaque client.
-              </p>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {features.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-slate-200"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-            À propos
-          </p>
-          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Une approche premium et orientée client</h2>
-          <p className="mt-5 text-slate-300 leading-8">
-            SuperHuman Delivery est une entreprise qui propose des services de déménagement, de transport et de nettoyage avec une approche moderne, professionnelle et rassurante. Nous avons fait du déménagement résidentiel un axe prioritaire afin d’offrir aux particuliers une expérience plus simple, plus fluide et plus sécurisante.
-          </p>
-          <p className="mt-4 text-slate-300 leading-8">
-            En complément, nous proposons aussi des solutions de déménagement commercial et de nettoyage résidentiel, afin de répondre à des besoins variés avec le même niveau d’exigence, de sérieux et de qualité de service.
-          </p>
-        </div>
-      </section>
-
-      <section className="border-y border-white/10 bg-slate-900/80">
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Témoignages
-            </p>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Une image de confiance pour vos futurs clients</h2>
-          </div>
-
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {testimonials.map((item) => (
-              <div key={item.name} className="rounded-3xl border border-white/10 bg-white/5 p-7 shadow-xl">
-                <p className="text-slate-300 leading-7">“{item.text}”</p>
-                <div className="mt-5 text-sm font-semibold text-cyan-300">{item.name}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Contact
-            </p>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-              Obtenez une soumission rapide
-            </h2>
-            <p className="mt-4 max-w-xl text-slate-300">
-              Dites-nous de quel service vous avez besoin et contactez-nous directement pour une prise en charge rapide.
-            </p>
-
-            <div className="mt-8 space-y-3 text-slate-200">
-              <p><span className="font-semibold text-white">Téléphone 1 :</span> 514-463-6742</p>
-              <p><span className="font-semibold text-white">Téléphone 2 :</span> 438-815-6524</p>
-              <p><span className="font-semibold text-white">Email :</span> superhuman.quebec@gmail.com</p>
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="tel:5144636742"
-                className="rounded-2xl bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950"
-              >
-                Appeler maintenant
-              </a>
-              <a
-                href="https://wa.me/15144636742"
-                className="rounded-2xl border border-green-400/30 bg-green-400/10 px-6 py-3 text-sm font-semibold text-green-200"
-              >
-                Écrire sur WhatsApp
-              </a>
-            </div>
-          </div>
-
-          <form
-            action="mailto:superhuman.quebec@gmail.com"
-            method="POST"
-            encType="text/plain"
-            className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl"
-          >
-            <div className="grid gap-5">
-              <input
-                name="Nom"
-                className="rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none placeholder:text-slate-500"
-                placeholder="Nom complet"
-              />
-              <input
-                name="Téléphone"
-                className="rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none placeholder:text-slate-500"
-                placeholder="Numéro de téléphone"
-              />
-              <input
-                name="Email"
-                className="rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none placeholder:text-slate-500"
-                placeholder="Adresse email"
-              />
-              <select
-                name="Service"
-                className="rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none"
-              >
-                <option>Déménagement résidentiel</option>
-                <option>Déménagement commercial</option>
-                <option>Nettoyage résidentiel</option>
-              </select>
-              <textarea
-                name="Besoin"
-                rows={5}
-                className="rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none placeholder:text-slate-500"
-                placeholder="Décrivez votre besoin"
-              />
-              <button
-                type="submit"
-                className="rounded-2xl bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:scale-[1.01]"
-              >
-                Envoyer la demande
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
-
-      <footer className="border-t border-white/10 bg-slate-950 px-6 py-8 text-center text-sm text-slate-400">
-        © 2026 SuperHuman Delivery • Montréal • Tous droits réservés
-      </footer>
+      </div>
     </div>
-  );
-}
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-top">
+        <h2>Nos services</h2>
+        <p>
+          Des services pensés pour rassurer, simplifier et exécuter avec sérieux.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Déménagement résidentiel">
+          <div class="card-body">
+            <h3>Déménagement résidentiel</h3>
+            <p>
+              Notre service principal pour appartements, condos et maisons, avec une prise en charge sérieuse, rapide et soignée.
+            </p>
+            <a href="#soumission" class="btn btn-primary">Demander une soumission</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Déménagement commercial">
+          <div class="card-body">
+            <h3>Déménagement commercial</h3>
+            <p>
+              Relocalisation de bureaux, commerces et équipements avec une organisation professionnelle adaptée aux entreprises.
+            </p>
+            <a href="#soumission" class="btn btn-primary">Demander une soumission</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" alt="Nettoyage résidentiel">
+          <div class="card-body">
+            <h3>Nettoyage résidentiel</h3>
+            <p>
+              Nettoyage avant ou après déménagement, entretien résidentiel et remise en état légère avec une finition propre et soignée.
+            </p>
+            <a href="#soumission" class="btn btn-primary">Demander une soumission</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#0b1730;">
+    <div class="container features-wrap">
+      <div class="feature-panel">
+        <h2>Pourquoi nous choisir</h2>
+        <p style="color:#cbd5e1;">
+          Nous mettons l’accent sur la ponctualité, le respect des biens, la clarté de communication et une exécution professionnelle.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-item">Soumission rapide et simple</div>
+        <div class="feature-item">Service résidentiel prioritaire</div>
+        <div class="feature-item">Approche professionnelle et ponctuelle</div>
+        <div class="feature-item">Montréal et environs</div>
+        <div class="feature-item">Téléphone et WhatsApp directs</div>
+        <div class="feature-item">Solutions adaptées aux clients</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container about-panel">
+      <h2>À propos</h2>
+      <p>
+        SuperHuman Delivery propose des services de déménagement, de transport et de nettoyage avec une approche moderne, professionnelle et rassurante.
+        Nous avons fait du déménagement résidentiel un axe prioritaire afin d’offrir aux particuliers une expérience plus simple, plus fluide et plus sécurisante.
+      </p>
+      <p>
+        En complément, nous proposons aussi des solutions de déménagement commercial et de nettoyage résidentiel, afin de répondre à des besoins variés avec le même niveau d’exigence.
+      </p>
+    </div>
+  </section>
+
+  <section style="background:#0b1730;">
+    <div class="container">
+      <div class="section-top">
+        <h2>Témoignages</h2>
+        <p>Une image de confiance pour vos futurs clients.</p>
+      </div>
+
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>“Service professionnel, rapide et très respectueux de nos biens. Une expérience rassurante du début à la fin.”</p>
+          <strong>Client résidentiel</strong>
+        </div>
+        <div class="testimonial">
+          <p>“Bonne coordination, équipe sérieuse et communication claire. Je recommande pour les besoins de transport et déménagement.”</p>
+          <strong>Client commercial</strong>
+        </div>
+        <div class="testimonial">
+          <p>“Appartement propre, travail soigné et service fiable. Très satisfait du résultat final.”</p>
+          <strong>Client nettoyage</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="soumission">
+    <div class="container contact-wrap">
+      <div class="contact-card">
+        <h2>Obtenez une soumission rapide</h2>
+        <p>
+          Dites-nous de quel service vous avez besoin et contactez-nous directement pour une prise en charge rapide.
+        </p>
+
+        <p><strong>Téléphone 1 :</strong> 514-463-6742</p>
+        <p><strong>Téléphone 2 :</strong> 438-815-6524</p>
+        <p><strong>Email :</strong> superhuman.quebec@gmail.com</p>
+
+        <div class="contact-links">
+          <a class="link-chip" href="tel:5144636742">Appeler</a>
+          <a class="link-chip" href="https://wa.me/15144636742?text=Bonjour%20SuperHuman%20Delivery%2C%20je%20souhaite%20une%20soumission.">WhatsApp</a>
+          <a class="link-chip" href="mailto:superhuman.quebec@gmail.com">Email</a>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3>Formulaire de demande</h3>
+        <form action="mailto:superhuman.quebec@gmail.com" method="POST" enctype="text/plain">
+          <input type="text" name="Nom" placeholder="Nom complet" required>
+          <input type="text" name="Téléphone" placeholder="Numéro de téléphone" required>
+          <input type="email" name="Email" placeholder="Adresse email" required>
+
+          <select name="Service" required>
+            <option value="">Choisissez un service</option>
+            <option>Déménagement résidentiel</option>
+            <option>Déménagement commercial</option>
+            <option>Nettoyage résidentiel</option>
+          </select>
+
+          <textarea name="Besoin" placeholder="Décrivez votre besoin" required></textarea>
+
+          <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Envoyer la demande</button>
+        </form>
+        <div class="note">
+          En cliquant sur envoyer, votre application e-mail peut s’ouvrir pour finaliser l’envoi.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 SuperHuman Delivery • Montréal • Tous droits réservés
+  </footer>
+
+</body>
+</html>
